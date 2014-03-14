@@ -1,6 +1,9 @@
 #include "HelloWorldScene.h"
+#include "PluginManager.h"
+#include "ProtocolUtils.h"
 
 USING_NS_CC;
+using namespace cocos2d::plugin;
 
 CCScene* HelloWorld::scene()
 {
@@ -80,7 +83,11 @@ bool HelloWorld::init()
 void HelloWorld::menuCloseCallback(CCObject* pSender)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-	CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
+	ProtocolUtils* utils = dynamic_cast<ProtocolUtils*>(PluginManager::getInstance()->loadPlugin("Utils"));
+	Dict info;
+	info["message"] = "Do you want exit game?";
+	info["title"] = "Exit game?";
+	utils->terminate(info);
 #else
     CCDirector::sharedDirector()->end();
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
