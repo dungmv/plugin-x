@@ -23,36 +23,70 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __INTERFACE_PROTOCOL__
-#define __INTERFACE_PROTOCOL__
-
-//#include <collection.h>
+#include "InputEvent.h"
+#include "Cocos2dRenderer.h"
 
 namespace PhoneDirect3DXamlAppComponent
 {
 
-public enum class PluginType {
-	PluginNone = 0,
-	PluginAds,
-	PluginAnalytics,
-	PluginIAP,
-	PluginShare,
-	PluginUser,
-	PluginSocial,
-	PluginUtils,
-};
-
-[Windows::Foundation::Metadata::WebHostHidden]
-public interface class InterfaceProtocol
+PointerEvent::PointerEvent(PointerEventType type, Windows::UI::Core::PointerEventArgs^ args)
+    : m_type(type), m_args(args)
 {
-public:
-	virtual PluginType getPluginType();
-	virtual Platform::String^ getSDKVersion();
-	virtual Platform::String^ getPluginVersion();
-	virtual void setDebugMode(bool debug);
-};
 
 }
 
-#endif // #ifndef __INTERFACE_PROTOCOL__
+void PointerEvent::execute(Cocos2dRenderer ^ renderer)
+{
+    switch(m_type)
+    {
+    case PointerEventType::PointerPressed:
+        renderer->OnPointerPressed(m_args.Get());
+        break;
+    case PointerEventType::PointerMoved:
+        renderer->OnPointerMoved(m_args.Get());
+        break;           
+    case PointerEventType::PointerReleased:
+        renderer->OnPointerReleased(m_args.Get());
+        break;
+    }
+}
+
+KeyboardEvent::KeyboardEvent(Cocos2dKeyEvent type)
+    : m_type(type), m_text(nullptr)
+{
+
+}
+
+KeyboardEvent::KeyboardEvent(Cocos2dKeyEvent type, Platform::String^ text)
+    : m_type(type), m_text(text)
+{
+
+}
+
+void KeyboardEvent::execute(Cocos2dRenderer ^ renderer)
+{
+    switch(m_type)
+    {
+    case Cocos2dKeyEvent::Text:
+        renderer->OnKeyPressed(m_text.Get());
+        break;
+    default:
+        renderer->OnCocos2dKeyEvent(m_type);
+        break;      
+    }
+}
+
+
+BackButtonEvent::BackButtonEvent()
+{
+
+}
+
+void BackButtonEvent::execute(Cocos2dRenderer ^ renderer)
+{
+    renderer->OnBackKeyPress();
+}
+
+
+}
 

@@ -8,11 +8,6 @@ namespace PhoneDirect3DXamlAppComponent
 {
 using namespace cocos2d::plugin;
 
-AdsWrapper::AdsWrapper()
-{
-}
-
-
 void AdsWrapper::onAdsResult(Platform::Object^ obj, int ret, Platform::String^ msg)
 {
 	PluginProtocol* plugin = PluginUtils::getPluginPtr(obj);

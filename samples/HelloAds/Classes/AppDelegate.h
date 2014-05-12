@@ -1,6 +1,5 @@
 /****************************************************************************
-Copyright (c) 2013 cocos2d-x.org
-Copyright (c) Microsoft Open Technologies, Inc.
+Copyright (c) 2012-2013 cocos2d-x.org
 
 http://www.cocos2d-x.org
 
@@ -22,37 +21,41 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
+#ifndef  _APP_DELEGATE_H_
+#define  _APP_DELEGATE_H_
 
-#ifndef __INTERFACE_PROTOCOL__
-#define __INTERFACE_PROTOCOL__
+#include "cocos2d.h"
 
-//#include <collection.h>
+/**
+@brief    The cocos2d Application.
 
-namespace PhoneDirect3DXamlAppComponent
-{
-
-public enum class PluginType {
-	PluginNone = 0,
-	PluginAds,
-	PluginAnalytics,
-	PluginIAP,
-	PluginShare,
-	PluginUser,
-	PluginSocial,
-	PluginUtils,
-};
-
-[Windows::Foundation::Metadata::WebHostHidden]
-public interface class InterfaceProtocol
+The reason for implement as private inheritance is to hide some interface call by CCDirector.
+*/
+class  AppDelegate : private cocos2d::CCApplication
 {
 public:
-	virtual PluginType getPluginType();
-	virtual Platform::String^ getSDKVersion();
-	virtual Platform::String^ getPluginVersion();
-	virtual void setDebugMode(bool debug);
+    AppDelegate();
+    virtual ~AppDelegate();
+
+    /**
+    @brief    Implement CCDirector and CCScene init code here.
+    @return true    Initialize success, app continue.
+    @return false   Initialize failed, app terminate.
+    */
+    virtual bool applicationDidFinishLaunching();
+
+    /**
+    @brief  The function be called when the application enter background
+    @param  the pointer of the application
+    */
+    virtual void applicationDidEnterBackground();
+
+    /**
+    @brief  The function be called when the application enter foreground
+    @param  the pointer of the application
+    */
+    virtual void applicationWillEnterForeground();
 };
 
-}
-
-#endif // #ifndef __INTERFACE_PROTOCOL__
+#endif // _APP_DELEGATE_H_
 

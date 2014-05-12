@@ -1,4 +1,4 @@
-/****************************************************************************
+﻿/****************************************************************************
 Copyright (c) 2013 cocos2d-x.org
 Copyright (c) Microsoft Open Technologies, Inc.
 
@@ -23,36 +23,31 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __INTERFACE_PROTOCOL__
-#define __INTERFACE_PROTOCOL__
+#pragma once
 
-//#include <collection.h>
+#include <wrl/client.h>
+#include <d3d11_1.h>
+#include <DirectXMath.h>
 
-namespace PhoneDirect3DXamlAppComponent
-{
-
-public enum class PluginType {
-	PluginNone = 0,
-	PluginAds,
-	PluginAnalytics,
-	PluginIAP,
-	PluginShare,
-	PluginUser,
-	PluginSocial,
-	PluginUtils,
-};
-
-[Windows::Foundation::Metadata::WebHostHidden]
-public interface class InterfaceProtocol
+// Helper class that initializes DirectX APIs for 3D rendering.
+class Direct3DContentProviderBase abstract
 {
 public:
-	virtual PluginType getPluginType();
-	virtual Platform::String^ getSDKVersion();
-	virtual Platform::String^ getPluginVersion();
-	virtual void setDebugMode(bool debug);
+    Direct3DContentProviderBase();
+    virtual void Initialize();
+    virtual void CreateDeviceResources();
+    virtual void CreateWindowSizeDependentResources();
+    virtual void UpdateForWindowSizeChange(float width, float height);
+
+protected:
+    // Direct3D Objects.
+    Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice;
+    Microsoft::WRL::ComPtr<ID3D11DeviceContext1> m_d3dContext;
+    Microsoft::WRL::ComPtr<ID3D11Texture2D> m_renderTarget;
+    Microsoft::WRL::ComPtr<ID3D11RenderTargetView> m_renderTargetView;
+
+    // Cached renderer properties.
+    D3D_FEATURE_LEVEL m_featureLevel;
+    Windows::Foundation::Size m_renderTargetSize;
+    Windows::Foundation::Rect m_windowBounds;
 };
-
-}
-
-#endif // #ifndef __INTERFACE_PROTOCOL__
-

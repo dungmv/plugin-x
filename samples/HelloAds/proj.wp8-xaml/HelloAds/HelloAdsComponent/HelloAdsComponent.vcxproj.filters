@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Classes\AppDelegate.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Cocos2dRenderer.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Direct3DContentProvider.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Direct3DContentProviderBase.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Direct3DInterop.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectXBase.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="InputEvent.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Classes\HelloWorldScene.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\PluginManager.cpp">
+      <Filter>Plugin-x</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\PluginParam.cpp">
+      <Filter>Plugin-x</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\AdsWrapper.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\IAPWrapper.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\PluginFactory.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\PluginHelper.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\PluginProtocol.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\PluginUtils.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolAds.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolAnalytics.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolIAP.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolShare.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolSocial.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolUser.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolUtils.cpp">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Classes\AppDelegate.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Cocos2dRenderer.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Direct3DContentProvider.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Direct3DContentProviderBase.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Direct3DInterop.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXBase.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXHelper.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="InputEvent.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="InputEventTypes.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Classes\HelloWorldScene.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\PluginFactory.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\PluginManager.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\PluginParam.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\PluginProtocol.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolAds.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolAnalytics.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolIAP.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolShare.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolSocial.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolUser.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolUtils.h">
+      <Filter>Plugin-x\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\AdsWrapper.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\IAPWrapper.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceAds.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceAnalytics.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceIAP.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceProtocol.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceShare.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceSocial.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceUser.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceUtils.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\PluginHelper.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\PluginMacros.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\PluginRCData.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\PluginUtils.h">
+      <Filter>Plugin-x\wp8</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Render">
+      <UniqueIdentifier>{a66fa1a6-8988-469e-9cc0-eb2913f1dfaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{b54acd72-43fd-4339-a85f-61c2f21bc4f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin-x">
+      <UniqueIdentifier>{8cc7a943-39ab-4c72-8e28-689c6005d473}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin-x\include">
+      <UniqueIdentifier>{12b3159d-d7d7-468a-bf18-6ced67e667f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin-x\wp8">
+      <UniqueIdentifier>{35cfa945-f903-4d24-be7d-b11bf31ad9d5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\protocols\jsb_protocols.ini">
+      <Filter>Plugin-x</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -7,16 +7,17 @@ using PhoneDirect3DXamlAppComponent;
 using System.Windows.Controls;
 using System.Threading;
 using System.Diagnostics;
-using adzon;
 using Microsoft.Phone.Controls;
 using System.Windows.Threading;
 using System.Windows;
+using Inneractive.Ad;
+using System.Windows.Controls.Primitives;
 
 namespace PluginX
 {
-    class Adzon : InterfaceAds
+    class AdsInneractive : InterfaceAds
     {
-        /*Adzon Size*/
+        /*AdsInneractive Size*/
         private const int kSizeBanner = 0;
         private const int kSizeIABMRect = 1;
         private const int kSizeIABBanner = 2;
@@ -32,61 +33,44 @@ namespace PluginX
         private const int kPosBottomLeft = 5;
         private const int kPosBottomRight = 6;
 
-        /*Adzon Type*/
+        /*AdsInneractive Type*/
         private const int kTypeBanner = 0;
         private const int kTypeFullScreen = 1;
 
-        /*Adzon Key*/
-        private const string kAdzID = "AdzonID";
+        /*AdsInneractive Key*/
+        private const string kAdzID = "AdsInneractiveID";
         private const string kAdzUser = "UserID";
         private const string kAdzPass = "PassID";
         private const string kAdzType = "AdType";
         private const string kAdzSize = "AdSize";
 
-        private adzonBanner bAds;
-        private adzonFullscreen fcAds;
+        private string appid;
+        private InneractiveAd bAds;
 
         private bool _debug = true;
 
-        public Adzon()
+        public AdsInneractive()
         {
         }
 
         private void writeLog(string msg)
         {
-            if (_debug) Debug.WriteLine("Adzon: " + msg);
+            if (_debug) Debug.WriteLine("AdsInneractive: " + msg);
         }
 
         public void configDeveloperInfo(IDictionary<string, string> devInfo)
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
-                string publishID = devInfo[kAdzID];
-                string userID = devInfo[kAdzUser];
-                string passID = devInfo[kAdzPass];
 
-                writeLog("key: " + publishID + " user " + userID + " pass " + passID);
+                bAds = new InneractiveAd();
+                bAds.AppID = devInfo["appid"];
+                bAds.AdType = InneractiveAd.IaAdType.IaAdType_Banner;
+                bAds.ReloadTime = 60;
+                bAds.OptionalAdHeight = 53;
+                bAds.OptionalAdWidth = 350;
+                appid = devInfo["appid"];
 
-                bAds = new adzonBanner();
-                bAds.setAdzonKey(publishID);
-                bAds.setUser(userID);
-                bAds.setPassword(passID);
-                bAds.OnFail = (int n) => { writeLog("onfil " + n); };
-                bAds.OnLoaded = () => { writeLog("thanh cong"); };
-
-                fcAds = new adzonFullscreen();
-                fcAds.setAdzonKey(publishID);
-                fcAds.setUser(userID);
-                fcAds.setPassword(passID);
-                fcAds.OnLoaded = () => { writeLog("thanh cong"); };
-                fcAds.OnFail = () => { writeLog("loi nhe"); };
-                fcAds.OnClose = () => 
-                { 
-                    writeLog("clode");
-                    Plugin.Instance.getRootLayout().Children.Remove(fcAds);
-                };
-
-                fcAds.OrientationChanged(PageOrientation.Landscape);
             });
         }
 
@@ -114,22 +98,17 @@ namespace PluginX
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
-                writeLog("day la debug");
                 int type = Int32.Parse(info[kAdzType]);
                 switch (type)
                 {
                     case kTypeBanner:
                         {
-                            writeLog("show ads banner");
                             showBannerAds(Int32.Parse(info[kAdzSize]), pos);
                             break;
                         }
                     case kTypeFullScreen:
                         {
-                            writeLog("show ads full screen");
-                            fcAds.showAds();
-                            Grid root = Plugin.Instance.getRootLayout();
-                            root.Children.Add(fcAds);
+                            InneractiveAd.DisplayAd(appid, InneractiveAd.IaAdType.IaAdType_Interstitial, Plugin.Instance.getRootLayout(), 0);
                             break;
                         }
                     default:
@@ -141,7 +120,6 @@ namespace PluginX
 
         private void showBannerAds(int size, int pos)
         {
-            bAds.showAds();
             switch (pos)
             {
                 case kPosCenter:
@@ -176,9 +154,8 @@ namespace PluginX
                     writeLog("pos not avali " + pos.ToString());
                     break;
             }
-            Grid root = Plugin.Instance.getRootLayout();
-            if(!root.Children.Contains(bAds))
-                root.Children.Add(bAds);
+            bAds.AdType = InneractiveAd.IaAdType.IaAdType_Banner;
+            Plugin.Instance.addChild(bAds);
         }
 
         public void hideAds(IDictionary<string, string> info)
@@ -200,14 +177,7 @@ namespace PluginX
                     }
                 case kTypeFullScreen:
                     {
-                        if (null != fcAds)
-                        {
-                            Deployment.Current.Dispatcher.BeginInvoke(() =>
-                            {
-                                Grid root = Plugin.Instance.getRootLayout();
-                                root.Children.Remove(fcAds);
-                            });
-                        }
+                        writeLog("not impli" + type.ToString());
                         break;
                     }
                 default:
@@ -219,12 +189,12 @@ namespace PluginX
 
         public void spendPoints(int points)
         {
-            writeLog("Adzon not support spend points!");
+            writeLog("AdsInneractive not support spend points!");
         }
 
         public void queryPoints()
         {
-            writeLog("Adzon not support query points!");
+            writeLog("AdsInneractive not support query points!");
         }
     }
 }

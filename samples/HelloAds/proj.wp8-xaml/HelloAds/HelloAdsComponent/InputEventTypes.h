@@ -23,36 +23,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __INTERFACE_PROTOCOL__
-#define __INTERFACE_PROTOCOL__
+#ifndef __INPUT_EVENT_TYPES__
+#define __INPUT_EVENT_TYPES__
 
-//#include <collection.h>
 
 namespace PhoneDirect3DXamlAppComponent
 {
 
-public enum class PluginType {
-	PluginNone = 0,
-	PluginAds,
-	PluginAnalytics,
-	PluginIAP,
-	PluginShare,
-	PluginUser,
-	PluginSocial,
-	PluginUtils,
+public enum class Cocos2dEvent
+{
+    ShowKeyboard,
+    HideKeyboard,
+    TerminateApp
 };
 
-[Windows::Foundation::Metadata::WebHostHidden]
-public interface class InterfaceProtocol
+
+public enum class Cocos2dKeyEvent : int 
 {
-public:
-	virtual PluginType getPluginType();
-	virtual Platform::String^ getSDKVersion();
-	virtual Platform::String^ getPluginVersion();
-	virtual void setDebugMode(bool debug);
+    Text,
+    Escape,
+    Back,
+    Enter
 };
 
 }
 
-#endif // #ifndef __INTERFACE_PROTOCOL__
+#endif // #ifndef __INPUT_EVENT_TYPES__
 

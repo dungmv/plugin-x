@@ -23,36 +23,25 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 
-#ifndef __INTERFACE_PROTOCOL__
-#define __INTERFACE_PROTOCOL__
+//// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+//// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+//// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+//// PARTICULAR PURPOSE.
+////
+//// Copyright (c) Microsoft Corporation. All rights reserved
 
-//#include <collection.h>
+#pragma once
 
-namespace PhoneDirect3DXamlAppComponent
+
+// This header defines helper utilities to make DirectX APIs work with exceptions.
+namespace DX
 {
-
-public enum class PluginType {
-	PluginNone = 0,
-	PluginAds,
-	PluginAnalytics,
-	PluginIAP,
-	PluginShare,
-	PluginUser,
-	PluginSocial,
-	PluginUtils,
-};
-
-[Windows::Foundation::Metadata::WebHostHidden]
-public interface class InterfaceProtocol
-{
-public:
-	virtual PluginType getPluginType();
-	virtual Platform::String^ getSDKVersion();
-	virtual Platform::String^ getPluginVersion();
-	virtual void setDebugMode(bool debug);
-};
-
+    inline void ThrowIfFailed(HRESULT hr)
+    {
+        if (FAILED(hr))
+        {
+            // Set a breakpoint on this line to catch DX API errors.
+            throw Platform::Exception::CreateException(hr);
+        }
+    }
 }
-
-#endif // #ifndef __INTERFACE_PROTOCOL__
-

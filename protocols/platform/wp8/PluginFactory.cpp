@@ -29,6 +29,7 @@ THE SOFTWARE.
 #include "ProtocolShare.h"
 #include "ProtocolUser.h"
 #include "ProtocolSocial.h"
+#include "ProtocolUtils.h"
 #include "PluginHelper.h"
 #include "InterfaceProtocol.h"
 
@@ -106,6 +107,9 @@ PluginProtocol* PluginFactory::createPlugin(const char* name)
 		case PluginType::PluginSocial:
 		    pRet = new ProtocolSocial();
 		    break;
+		case PluginType::PluginUtils:
+			pRet = new ProtocolUtils();
+			break;
 		default:
 			PluginUtils::outputLog("Plugin %s not implements a right protocol", name);
 			break;

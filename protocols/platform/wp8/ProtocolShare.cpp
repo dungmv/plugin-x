@@ -23,8 +23,13 @@ THE SOFTWARE.
 ****************************************************************************/
 #include "ProtocolShare.h"
 #include "PluginUtils.h"
+#include "InterfaceShare.h"
+#include <assert.h>
 
 namespace cocos2d { namespace plugin {
+
+namespace WFC = Windows::Foundation::Collections;
+using namespace PhoneDirect3DXamlAppComponent;
 
 ProtocolShare::ProtocolShare()
 : _listener(NULL)
@@ -44,21 +49,15 @@ void ProtocolShare::configDeveloperInfo(TShareDeveloperInfo devInfo)
     }
     else
     {
-     //   PluginJavaData* pData = PluginUtils::getPluginJavaData(this);
-    	//PluginJniMethodInfo t;
-     //   if (PluginJniHelper::getMethodInfo(t
-    	//	, pData->jclassName.c_str()
-    	//	, "configDeveloperInfo"
-    	//	, "(Ljava/util/Hashtable;)V"))
-    	//{
-     //   	// generate the hashtable from map
-     //   	jobject obj_Map = PluginUtils::createJavaMapObject(&devInfo);
-
-     //       // invoke java method
-     //       t.env->CallVoidMethod(pData->jobj, t.methodID, obj_Map);
-     //       t.env->DeleteLocalRef(obj_Map);
-     //       t.env->DeleteLocalRef(t.classID);
-     //   }
+		PluginRCData* pData = PluginUtils::getPluginRCData(this);
+		assert(pData != NULL);
+		Platform::Object^ rcObj = pData->obj;
+		auto obj = dynamic_cast<InterfaceShare^>(rcObj);
+		if (obj)
+		{
+			WFC::IMap<Platform::String^, Platform::String^>^ map = PluginUtils::createDictFromMap(&devInfo);
+			obj->configDeveloperInfo(map);
+		}
     }
 }
 
@@ -75,27 +74,51 @@ void ProtocolShare::share(TShareInfo info)
     }
     else
     {
-  //      PluginJavaData* pData = PluginUtils::getPluginJavaData(this);
-		//PluginJniMethodInfo t;
-		//if (PluginJniHelper::getMethodInfo(t
-		//	, pData->jclassName.c_str()
-		//	, "share"
-		//	, "(Ljava/util/Hashtable;)V"))
-		//{
-		//	// generate the hashtable from map
-		//	jobject obj_Map = PluginUtils::createJavaMapObject(&info);
-
-		//	// invoke java method
-		//	t.env->CallVoidMethod(pData->jobj, t.methodID, obj_Map);
-		//	t.env->DeleteLocalRef(obj_Map);
-		//	t.env->DeleteLocalRef(t.classID);
-		//}
+		PluginRCData* pData = PluginUtils::getPluginRCData(this);
+		assert(pData != NULL);
+		Platform::Object^ rcObj = pData->obj;
+		auto obj = dynamic_cast<InterfaceShare^>(rcObj);
+		if (obj)
+		{
+			WFC::IMap<Platform::String^, Platform::String^>^ map = PluginUtils::createDictFromMap(&info);
+			obj->share(map);
+		}
     }
+}
+
+void ProtocolShare::submitScore(int score)
+{
+
+	PluginRCData* pData = PluginUtils::getPluginRCData(this);
+	assert(pData != NULL);
+	Platform::Object^ rcObj = pData->obj;
+	auto obj = dynamic_cast<InterfaceShare^>(rcObj);
+	if (obj)
+	{
+		obj->submitScore(score);
+	}
+}
+
+void ProtocolShare::getLeaderboard()
+{
+	PluginRCData* pData = PluginUtils::getPluginRCData(this);
+	assert(pData != NULL);
+	Platform::Object^ rcObj = pData->obj;
+	auto obj = dynamic_cast<InterfaceShare^>(rcObj);
+	if (obj)
+	{
+		obj->getLeaderboard();
+	}
 }
 
 void ProtocolShare::setResultListener(ShareResultListener* pListener)
 {
 	_listener = pListener;
+}
+
+void ProtocolShare::setLeaderboardResultListener(LeaderboardResultListener* pListener)
+{
+	_listenerLeaderboard = pListener;
 }
 
 void ProtocolShare::onShareResult(ShareResultCode ret, const char* msg)
@@ -109,6 +132,19 @@ void ProtocolShare::onShareResult(ShareResultCode ret, const char* msg)
         PluginUtils::outputLog("ProtocolShare", "Result listener is null!");
     }
     PluginUtils::outputLog("ProtocolShare", "Share result is : %d(%s)", (int) ret, msg);
+}
+
+void ProtocolShare::onLeaderboardResult(ShareResultCode ret, const char* msg)
+{
+	if (_listenerLeaderboard)
+	{
+		_listenerLeaderboard->onLeaderboardResult(ret, msg);
+	}
+	else
+	{
+		PluginUtils::outputLog("ProtocolShare", "Result listener is null!");
+	}
+	PluginUtils::outputLog("ProtocolShare", "Share result is : %d(%s)", (int)ret, msg);
 }
 
 }} // namespace cocos2d { namespace plugin {

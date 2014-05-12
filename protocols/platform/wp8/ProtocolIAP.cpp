@@ -117,7 +117,7 @@ void ProtocolIAP::onPayResult(PayResultCode ret, const char* msg)
         PluginUtils::outputLog("Pay result listener is null!");
     }
     _curInfo.clear();
-    PluginUtils::outputLog("Pay result is: %d (%s)", (int) ret, msg);
+    //PluginUtils::outputLog("Pay result is: %d (%s)", (int) ret, msg);
 }
 
 }} // namespace cocos2d { namespace plugin {
