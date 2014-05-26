@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Cocos2dRenderer.cpp" />
+    <ClCompile Include="Direct3DContentProvider.cpp" />
+    <ClCompile Include="Direct3DContentProviderBase.cpp" />
+    <ClCompile Include="Direct3DInterop.cpp" />
+    <ClCompile Include="DirectXBase.cpp" />
+    <ClCompile Include="InputEvent.cpp" />
+    <ClCompile Include="..\..\..\Classes\AppDelegate.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\AdsWrapper.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\IAPWrapper.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\PluginFactory.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\PluginHelper.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\PluginProtocol.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolAds.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolAnalytics.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolIAP.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolShare.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolSocial.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolUser.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\PluginManager.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\PluginParam.cpp">
+      <Filter>Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Classes\HelloWorldScene.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\PluginUtils.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ProtocolUtils.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\protocols\platform\wp8\ShareWrapper.cpp">
+      <Filter>Plugin\wp8</Filter>
+    </ClCompile>
+    <ClCompile Include="EditBoxEvent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Cocos2dRenderer.h" />
+    <ClInclude Include="Direct3DContentProvider.h" />
+    <ClInclude Include="Direct3DContentProviderBase.h" />
+    <ClInclude Include="Direct3DInterop.h" />
+    <ClInclude Include="DirectXBase.h" />
+    <ClInclude Include="DirectXHelper.h" />
+    <ClInclude Include="InputEvent.h" />
+    <ClInclude Include="InputEventTypes.h" />
+    <ClInclude Include="..\..\..\Classes\AppDelegate.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\PluginFactory.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\PluginManager.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\PluginParam.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\PluginProtocol.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolAds.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolAnalytics.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolIAP.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolShare.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolSocial.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolUser.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\AdsWrapper.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\IAPWrapper.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceAds.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceAnalytics.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceIAP.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceProtocol.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceShare.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceSocial.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceUser.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\PluginHelper.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\PluginMacros.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\PluginRCData.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Classes\HelloWorldScene.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\include\ProtocolUtils.h">
+      <Filter>Plugin\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\InterfaceUtils.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\PluginUtils.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\protocols\platform\wp8\ShareWrapper.h">
+      <Filter>Plugin\wp8</Filter>
+    </ClInclude>
+    <ClInclude Include="EditBoxEvent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{db7041c4-8b52-40bd-9a7b-b725cbb86487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin">
+      <UniqueIdentifier>{218f98e9-6236-4b99-aa91-4ba572d5a236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin\include">
+      <UniqueIdentifier>{b0486b47-2663-4457-8f8a-2025368b59f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin\wp8">
+      <UniqueIdentifier>{864ba7c5-f75e-4341-b84b-37cd20869a4b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\protocols\jsb_protocols.ini">
+      <Filter>Plugin</Filter>
+    </None>
+  </ItemGroup>
+</Project>
